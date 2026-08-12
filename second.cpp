@@ -10,5 +10,8 @@ int main(){
 
     cout<<"enter the second number";
     cin>>b;
+    sum=a+b;
+    cout<<""
+
     
 }

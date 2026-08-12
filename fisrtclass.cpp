@@ -2,7 +2,7 @@
 #include <string>
 
 using namespace std;
-
+void inputDetails();
 class Student
 {
 private:
@@ -10,7 +10,7 @@ private:
     int rollNo;
     float marks;
 
-public:
+//public:
     void inputDetails()
     {
         cout << "Enter Student Name: ";
@@ -22,9 +22,10 @@ public:
         cout << "Enter Marks: ";
         cin >> marks;
     }
-
+public:
     void displayDetails() const
     {
+         
         cout << "\n----- Student Details -----\n";
         cout << "Name    : " << name << endl;
         cout << "Roll No.: " << rollNo << endl;
@@ -36,8 +37,12 @@ int main()
 {
     Student s;
 
-    s.inputDetails();
+    inputDetails();
+     
     s.displayDetails();
 
     return 0;
+}
+void inputDetails(){
+    cout<<" calling method outside the class. ";
 }
