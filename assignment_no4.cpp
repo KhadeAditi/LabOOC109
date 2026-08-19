@@ -2,7 +2,7 @@
 using namespace std;
 // Saving Account Class
 class SavingAccount {
-private:
+public:
 string accountHolderName;
 int accountNumber;
 double balance;
@@ -14,6 +14,7 @@ accountNumber = accNumber;
 balance = initialBalance;
 interestRate = rate;
 }
+SavingAccount(){}
 void deposit(double amount) {
 if (amount > 0) {
 balance += amount;
@@ -43,17 +44,22 @@ cout << "Interest Rate: " << interestRate << "%" << endl;
 };
 // Checking Account Class
 class CheckingAccount {
-private:
+public:
 string accountHolderName;
 int accountNumber;
 double balance;
 double transactionFee;
+SavingAccount s1;
 public:
 CheckingAccount(string name, int accNumber, double initialBalance, double fee) {
 accountHolderName = name;
 accountNumber = accNumber;
 balance = initialBalance;
 transactionFee = fee;
+s1.accountHolderName=name;
+s1.accountNumber=accNumber;
+s1.balance=balance;
+s1.interestRate=7;
 }
 void deposit(double amount) {
 if (amount > 0) {
@@ -72,11 +78,13 @@ cout << "Insufficient balance for withdrawal + fee!" << endl;
 }
 }
 void display() {
+    s1.display();
   cout << "\n[Checking Account]" << endl;
 cout << "Account Holder: " << accountHolderName << endl;
 cout << "Account Number: " << accountNumber << endl;
 cout << "Balance: ₹" << balance << endl;
 cout << "Transaction Fee: ₹" << transactionFee << endl;
+ 
 }
 };
 // Main Function
@@ -84,6 +92,7 @@ int main() {
 SavingAccount savings("Alice", 1001, 5000.0, 3.0);
 CheckingAccount checking("Bob", 1002, 3000.0, 20.0);
 // Operations on Savings Account
+ 
 savings.display();
 savings.deposit(1000);
 savings.withdraw(2000);
